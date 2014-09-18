@@ -1,3 +1,5 @@
+package org.akceptor;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +19,7 @@ import java.util.Random;
 public class Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
-    private static final Random randomGenerator = new Random();
+
 
     public static void main(String... args) throws IOException, InterruptedException {
         //User Agents List
@@ -29,7 +31,7 @@ public class Main {
         userAgentsList.add("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7) AppleWebKit/534.48.3 (KHTML, like Gecko) Version/5.1 Safari/534.48.3");
         //Init
         FirefoxProfile profile = new FirefoxProfile();
-        profile.setPreference("general.useragent.override", randomString(userAgentsList));
+        profile.setPreference("general.useragent.override", StrUtils.randomString(userAgentsList));
 
         //TOR
         LOGGER.info("Starting TOR");
@@ -82,14 +84,4 @@ public class Main {
         LOGGER.info("DONE!");
     }
 
-    /**
-     * Returns random element from list
-     *
-     * @param list of elements
-     * @return random element
-     */
-    private static String randomString(List<String> list) {
-        int index = randomGenerator.nextInt(list.size());
-        return list.get(index);
-    }
 }

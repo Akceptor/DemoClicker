@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class StrUtils {
 
+	//Test
     private static final Random randomGenerator = new Random();
     /**
      * Returns random element from list
